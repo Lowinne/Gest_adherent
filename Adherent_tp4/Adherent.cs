@@ -13,6 +13,7 @@ namespace Adherent_tp4
         private String mail;
         private DateTime dateNaissance;
         private List<Activite> mesActivites;
+        private float budgetMax;
 
         public Adherent(string nom, string prenom, string mail, DateTime dateNaissance)
         {
@@ -21,9 +22,28 @@ namespace Adherent_tp4
             this.mail = mail;
             this.dateNaissance = dateNaissance;
             mesActivites = new List<Activite>();
+            budgetMax = 50;
 
         }
-        public void AjouterActivite(Activite a) { mesActivites.Add(a); }
+        public Adherent(string nom, string prenom, string mail, DateTime dateNaissance, float budgetMax)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.mail = mail;
+            this.dateNaissance = dateNaissance;
+            mesActivites = new List<Activite>();
+            this.budgetMax = budgetMax;
+
+        }
+        public void AjouterActivite(Activite a) 
+        {
+            if (a.GetTarif() <= Activite.GetTarifMax())
+            {
+                mesActivites.Add(a);
+            }
+            else { MessageBox.Show("Methode : AjouterActivite : 'Le tarif de l'activite depasse le tarif max'"); }
+             
+        }
         /*public override bool Equals(Object obj)
         {
             if ((obj == null) || this.GetType().Equals(obj.GetType())) { return false; }
@@ -56,7 +76,7 @@ namespace Adherent_tp4
         public override String ToString()
         {
 
-            return nom + " " + prenom + " " + this.GetAge() + " ans";
+            return nom + " " + prenom + " " + this.GetAge() + " ans/Budget "+this.GetBudgetMax()+" cout "+this.GetCoutActivite();
         }
         public override bool Equals(object obj)
         {
@@ -66,6 +86,22 @@ namespace Adherent_tp4
                 Adherent a = (Adherent)obj;
                 return this.nom.Equals(a.nom);
             }
+        }
+        public float GetBudgetMax() { return budgetMax; }
+
+        public void SetBudgetMax(float budgetMax) { this.budgetMax = budgetMax; }
+
+        public float GetCoutActivite()
+        {
+            float som = 0;
+            for (int i = 0; i < mesActivites.Count; i++)
+            {
+                
+                som += mesActivites[i].GetTarif();
+                
+
+            }
+            return som;
         }
     }
 }

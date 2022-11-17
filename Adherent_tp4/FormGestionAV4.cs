@@ -41,12 +41,14 @@ namespace Adherent_tp4
                 labAdheNom.Text = ad.GetNom();
                 labAdhePrenom.Text = ad.GetPrenom();
                 TextBMail.Text = ad.GetMail();
-                labAdheAge.Text = "" + ad.GetAge(); ;
+                labAdheAge.Text = "" + ad.GetAge();
+                textBAugmentBudgetMax.Text = "" + ad.GetBudgetMax();
 
                 textBoxNomG.Text = ad.GetNom();
                 textBoxPreG.Text = ad.GetPrenom();
                 textBoxMailG.Text = ad.GetMail();
                 textBoxAgeG.Text = "";
+                textBBudgetMax.Text = ad.GetBudgetMax()+"" ;
 
             }
             listBAct.Items.Clear();
@@ -82,14 +84,27 @@ namespace Adherent_tp4
             textBoxMailG.Text = "";
 
             Adherent ad1 = new Adherent("Prince", "Boris", "boris.prince@gmail.com", new DateTime(1999, 05, 03));
+            Adherent ad2 = new Adherent("Lowe", "Jeremy", "boris.prince@gmail.com", new DateTime(2000, 02, 21),120);
 
-            listBAdhe.Items.Add(ad1);
-            Activite a1 = new Activite("Cycling", (float)25, "Sport", new DateTime(2022, 05, 27));
+            
+
+            Activite a1 = new Activite("Cycling", 25, "Sport", new DateTime(2022, 05, 27));
+            Activite a2 = new Activite("Running", 13, "Sport", new DateTime(2022, 05, 23));
+            Activite a3 = new Activite("Swimming", 65, "Sport", new DateTime(2022, 05, 23));
             listeActivites.Add(a1);
-            listeActivites.Add(new Activite("Running",(float) 13, "Sport", new DateTime(2022, 05 , 23)));
+            listeActivites.Add(a2);
+            listeActivites.Add(a3);
 
             ad1.AjouterActivite(a1);
+            ad1.AjouterActivite(a2);
+            ad2.AjouterActivite(a1);
 
+            listBAdhe.Items.Add(ad1);
+            listBAdhe.Items.Add(ad2);
+
+            
+
+            labTarifMax.Text = Activite.GetTarifMax()+"";
 
         }
 
@@ -120,9 +135,17 @@ namespace Adherent_tp4
             textBResGest.Text = "";
             if (!(listeActivites.Contains(ac)))
             {
-                listeActivites.Add(ac);
-                textBResGest.Text = ac.ToString();
-                MessageBox.Show("Activité ajouté");
+                if (ac.GetTarif() <= Activite.GetTarifMax())
+                {
+
+                    listeActivites.Add(ac);
+                    textBResGest.Text = ac.ToString();
+                    MessageBox.Show("Activité ajouté");
+                }
+                else
+                {
+                    MessageBox.Show("L'activité a un tarif indecent");
+                }
             }
 
         }
@@ -160,8 +183,16 @@ namespace Adherent_tp4
         {
             if (!((Adherent)listBAdhe.SelectedItem).GetMesActivite().Contains(((Activite)listBAct.SelectedItem)))
             {
-                ((Adherent)listBAdhe.SelectedItem).AjouterActivite(((Activite)listBAct.SelectedItem));
-                MessageBox.Show("Inscription effectué");
+                if (((Adherent)listBAdhe.SelectedItem).GetCoutActivite()+ ((Activite)listBAct.SelectedItem).GetTarif() < ((Adherent)listBAdhe.SelectedItem).GetBudgetMax())
+                {
+                    ((Adherent)listBAdhe.SelectedItem).AjouterActivite(((Activite)listBAct.SelectedItem));
+                    MessageBox.Show("Inscription effectué");
+                }
+                else
+                {
+                    MessageBox.Show("T'a pas assez d'argent Mec");
+                }
+                    
             }
             else
             {
@@ -205,5 +236,56 @@ namespace Adherent_tp4
 
 
         }
+
+        private void butAugmenterTarifMax_Click(object sender, EventArgs e)
+        {
+            float newTMax = float.Parse(textBTarifMax.Text);
+            Activite.setTarifMax(newTMax);
+            labTarifMax.Text = newTMax.ToString();
+        }
+
+        private void butAugmentBudgetMax_Click(object sender, EventArgs e)
+        {
+            float nB = float.Parse(textBAugmentBudgetMax.Text);
+            if (((Adherent)listBAdhe.SelectedItem).GetBudgetMax() < nB)
+            {
+                ((Adherent)listBAdhe.SelectedItem).SetBudgetMax(nB);
+                MessageBox.Show("Tarif succesfully Augmenter");
+            }
+            else
+            {
+                MessageBox.Show("T'augmente pas, la !");
+            }
+            
+
+            ((Adherent)listBAdhe.SelectedItem).SetBudgetMax(nB);
+        }
+
+        private void butAfficherTousAdherent_Click(object sender, EventArgs e)
+        {
+            List<Adherent> l_temp = new List<Adherent>();
+
+            for(int i = 0; i < listBAdhe.Items.Count; i++)
+            {
+
+                l_temp.Add((Adherent) listBAdhe.Items[i]);
+
+            }
+
+            listBAdhe.Items.Clear();
+
+            for (int i = 0; i < l_temp.Count; i++)
+            {
+
+                listBAdhe.Items.Add(l_temp[i]);
+
+            }
+            MessageBox.Show("Refresh Done");
+
+
+
+        }
+
+
     }
 }

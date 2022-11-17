@@ -33,6 +33,9 @@
             this.radButtGest = new System.Windows.Forms.RadioButton();
             this.tabControlAdheGest = new System.Windows.Forms.TabControl();
             this.tabAdhe = new System.Windows.Forms.TabPage();
+            this.butAugmentBudgetMax = new System.Windows.Forms.Button();
+            this.textBAugmentBudgetMax = new System.Windows.Forms.TextBox();
+            this.labAugmentBudgetMax = new System.Windows.Forms.Label();
             this.butDesincription = new System.Windows.Forms.Button();
             this.butInscription = new System.Windows.Forms.Button();
             this.labAdheAge = new System.Windows.Forms.Label();
@@ -46,6 +49,8 @@
             this.labPrenomAdhe = new System.Windows.Forms.Label();
             this.labNomAdhe = new System.Windows.Forms.Label();
             this.tabGest = new System.Windows.Forms.TabPage();
+            this.labBudgetMax = new System.Windows.Forms.Label();
+            this.textBBudgetMax = new System.Windows.Forms.TextBox();
             this.textBResGest = new System.Windows.Forms.TextBox();
             this.textBoxDateActGest = new System.Windows.Forms.TextBox();
             this.labDateDebGest = new System.Windows.Forms.Label();
@@ -70,6 +75,12 @@
             this.labRole = new System.Windows.Forms.Label();
             this.listBAct = new System.Windows.Forms.ListBox();
             this.butAfficheAct = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labTarifMax = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBTarifMax = new System.Windows.Forms.TextBox();
+            this.butAugmenterTarifMax = new System.Windows.Forms.Button();
+            this.butAfficherTousAdherent = new System.Windows.Forms.Button();
             this.tabControlAdheGest.SuspendLayout();
             this.tabAdhe.SuspendLayout();
             this.tabGest.SuspendLayout();
@@ -124,6 +135,9 @@
             // 
             // tabAdhe
             // 
+            this.tabAdhe.Controls.Add(this.butAugmentBudgetMax);
+            this.tabAdhe.Controls.Add(this.textBAugmentBudgetMax);
+            this.tabAdhe.Controls.Add(this.labAugmentBudgetMax);
             this.tabAdhe.Controls.Add(this.butDesincription);
             this.tabAdhe.Controls.Add(this.butInscription);
             this.tabAdhe.Controls.Add(this.labAdheAge);
@@ -144,6 +158,32 @@
             this.tabAdhe.TabIndex = 0;
             this.tabAdhe.Text = "Adhérent";
             this.tabAdhe.UseVisualStyleBackColor = true;
+            // 
+            // butAugmentBudgetMax
+            // 
+            this.butAugmentBudgetMax.Location = new System.Drawing.Point(362, 334);
+            this.butAugmentBudgetMax.Name = "butAugmentBudgetMax";
+            this.butAugmentBudgetMax.Size = new System.Drawing.Size(232, 29);
+            this.butAugmentBudgetMax.TabIndex = 34;
+            this.butAugmentBudgetMax.Text = "Augmenter le budget max";
+            this.butAugmentBudgetMax.UseVisualStyleBackColor = true;
+            this.butAugmentBudgetMax.Click += new System.EventHandler(this.butAugmentBudgetMax_Click);
+            // 
+            // textBAugmentBudgetMax
+            // 
+            this.textBAugmentBudgetMax.Location = new System.Drawing.Point(234, 275);
+            this.textBAugmentBudgetMax.Name = "textBAugmentBudgetMax";
+            this.textBAugmentBudgetMax.Size = new System.Drawing.Size(127, 27);
+            this.textBAugmentBudgetMax.TabIndex = 16;
+            // 
+            // labAugmentBudgetMax
+            // 
+            this.labAugmentBudgetMax.AutoSize = true;
+            this.labAugmentBudgetMax.Location = new System.Drawing.Point(33, 278);
+            this.labAugmentBudgetMax.Name = "labAugmentBudgetMax";
+            this.labAugmentBudgetMax.Size = new System.Drawing.Size(183, 20);
+            this.labAugmentBudgetMax.TabIndex = 14;
+            this.labAugmentBudgetMax.Text = "Augmenter le budget Max";
             // 
             // butDesincription
             // 
@@ -168,7 +208,7 @@
             // labAdheAge
             // 
             this.labAdheAge.AutoSize = true;
-            this.labAdheAge.Location = new System.Drawing.Point(131, 261);
+            this.labAdheAge.Location = new System.Drawing.Point(131, 237);
             this.labAdheAge.Name = "labAdheAge";
             this.labAdheAge.Size = new System.Drawing.Size(50, 20);
             this.labAdheAge.TabIndex = 11;
@@ -177,7 +217,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 261);
+            this.label1.Location = new System.Drawing.Point(33, 237);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 10;
@@ -185,7 +225,7 @@
             // 
             // TextBMail
             // 
-            this.TextBMail.Location = new System.Drawing.Point(112, 182);
+            this.TextBMail.Location = new System.Drawing.Point(112, 174);
             this.TextBMail.Name = "TextBMail";
             this.TextBMail.Size = new System.Drawing.Size(206, 27);
             this.TextBMail.TabIndex = 7;
@@ -205,7 +245,7 @@
             // labAdheMail
             // 
             this.labAdheMail.AutoSize = true;
-            this.labAdheMail.Location = new System.Drawing.Point(131, 185);
+            this.labAdheMail.Location = new System.Drawing.Point(131, 177);
             this.labAdheMail.Name = "labAdheMail";
             this.labAdheMail.Size = new System.Drawing.Size(0, 20);
             this.labAdheMail.TabIndex = 5;
@@ -231,7 +271,7 @@
             // labMailAdhe
             // 
             this.labMailAdhe.AutoSize = true;
-            this.labMailAdhe.Location = new System.Drawing.Point(33, 185);
+            this.labMailAdhe.Location = new System.Drawing.Point(33, 177);
             this.labMailAdhe.Name = "labMailAdhe";
             this.labMailAdhe.Size = new System.Drawing.Size(45, 20);
             this.labMailAdhe.TabIndex = 2;
@@ -257,6 +297,8 @@
             // 
             // tabGest
             // 
+            this.tabGest.Controls.Add(this.labBudgetMax);
+            this.tabGest.Controls.Add(this.textBBudgetMax);
             this.tabGest.Controls.Add(this.textBResGest);
             this.tabGest.Controls.Add(this.textBoxDateActGest);
             this.tabGest.Controls.Add(this.labDateDebGest);
@@ -286,6 +328,22 @@
             this.tabGest.TabIndex = 1;
             this.tabGest.Text = "Gestionnaire";
             this.tabGest.UseVisualStyleBackColor = true;
+            // 
+            // labBudgetMax
+            // 
+            this.labBudgetMax.AutoSize = true;
+            this.labBudgetMax.Location = new System.Drawing.Point(42, 268);
+            this.labBudgetMax.Name = "labBudgetMax";
+            this.labBudgetMax.Size = new System.Drawing.Size(96, 20);
+            this.labBudgetMax.TabIndex = 42;
+            this.labBudgetMax.Text = "Budget Max :";
+            // 
+            // textBBudgetMax
+            // 
+            this.textBBudgetMax.Location = new System.Drawing.Point(183, 265);
+            this.textBBudgetMax.Name = "textBBudgetMax";
+            this.textBBudgetMax.Size = new System.Drawing.Size(114, 27);
+            this.textBBudgetMax.TabIndex = 41;
             // 
             // textBResGest
             // 
@@ -384,7 +442,7 @@
             // 
             // buttSuppAdheGest
             // 
-            this.buttSuppAdheGest.Location = new System.Drawing.Point(41, 342);
+            this.buttSuppAdheGest.Location = new System.Drawing.Point(41, 359);
             this.buttSuppAdheGest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttSuppAdheGest.Name = "buttSuppAdheGest";
             this.buttSuppAdheGest.Size = new System.Drawing.Size(178, 31);
@@ -395,7 +453,7 @@
             // 
             // buttAjoutAdheGest
             // 
-            this.buttAjoutAdheGest.Location = new System.Drawing.Point(42, 284);
+            this.buttAjoutAdheGest.Location = new System.Drawing.Point(42, 320);
             this.buttAjoutAdheGest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttAjoutAdheGest.Name = "buttAjoutAdheGest";
             this.buttAjoutAdheGest.Size = new System.Drawing.Size(177, 31);
@@ -406,7 +464,7 @@
             // 
             // textBoxAgeG
             // 
-            this.textBoxAgeG.Location = new System.Drawing.Point(183, 236);
+            this.textBoxAgeG.Location = new System.Drawing.Point(183, 221);
             this.textBoxAgeG.Name = "textBoxAgeG";
             this.textBoxAgeG.Size = new System.Drawing.Size(114, 27);
             this.textBoxAgeG.TabIndex = 30;
@@ -414,7 +472,7 @@
             // labGestDateNaissance
             // 
             this.labGestDateNaissance.AutoSize = true;
-            this.labGestDateNaissance.Location = new System.Drawing.Point(39, 239);
+            this.labGestDateNaissance.Location = new System.Drawing.Point(39, 224);
             this.labGestDateNaissance.Name = "labGestDateNaissance";
             this.labGestDateNaissance.Size = new System.Drawing.Size(136, 20);
             this.labGestDateNaissance.TabIndex = 29;
@@ -495,17 +553,77 @@
             this.butAfficheAct.Location = new System.Drawing.Point(375, 520);
             this.butAfficheAct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butAfficheAct.Name = "butAfficheAct";
-            this.butAfficheAct.Size = new System.Drawing.Size(216, 24);
+            this.butAfficheAct.Size = new System.Drawing.Size(216, 35);
             this.butAfficheAct.TabIndex = 28;
             this.butAfficheAct.Text = "Afficher toutes les activités";
             this.butAfficheAct.UseVisualStyleBackColor = true;
             this.butAfficheAct.Click += new System.EventHandler(this.butAfficheAct_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(619, 507);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 20);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Tarif maximal des activites :";
+            // 
+            // labTarifMax
+            // 
+            this.labTarifMax.AutoSize = true;
+            this.labTarifMax.Location = new System.Drawing.Point(833, 507);
+            this.labTarifMax.Name = "labTarifMax";
+            this.labTarifMax.Size = new System.Drawing.Size(21, 20);
+            this.labTarifMax.TabIndex = 30;
+            this.labTarifMax.Text = "\"\"";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(625, 546);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 20);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Nouveau Tarif Max :";
+            // 
+            // textBTarifMax
+            // 
+            this.textBTarifMax.Location = new System.Drawing.Point(787, 539);
+            this.textBTarifMax.Name = "textBTarifMax";
+            this.textBTarifMax.Size = new System.Drawing.Size(114, 27);
+            this.textBTarifMax.TabIndex = 32;
+            // 
+            // butAugmenterTarifMax
+            // 
+            this.butAugmenterTarifMax.Location = new System.Drawing.Point(950, 537);
+            this.butAugmenterTarifMax.Name = "butAugmenterTarifMax";
+            this.butAugmenterTarifMax.Size = new System.Drawing.Size(209, 29);
+            this.butAugmenterTarifMax.TabIndex = 33;
+            this.butAugmenterTarifMax.Text = "Augmenter le tarif max";
+            this.butAugmenterTarifMax.UseVisualStyleBackColor = true;
+            this.butAugmenterTarifMax.Click += new System.EventHandler(this.butAugmenterTarifMax_Click);
+            // 
+            // butAfficherTousAdherent
+            // 
+            this.butAfficherTousAdherent.Location = new System.Drawing.Point(52, 557);
+            this.butAfficherTousAdherent.Name = "butAfficherTousAdherent";
+            this.butAfficherTousAdherent.Size = new System.Drawing.Size(306, 31);
+            this.butAfficherTousAdherent.TabIndex = 34;
+            this.butAfficherTousAdherent.Text = "Afficher tous les adhérents";
+            this.butAfficherTousAdherent.UseVisualStyleBackColor = true;
+            this.butAfficherTousAdherent.Click += new System.EventHandler(this.butAfficherTousAdherent_Click);
             // 
             // FormGestionAV4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1664, 600);
+            this.Controls.Add(this.butAfficherTousAdherent);
+            this.Controls.Add(this.butAugmenterTarifMax);
+            this.Controls.Add(this.textBTarifMax);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labTarifMax);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.butAfficheAct);
             this.Controls.Add(this.listBAct);
             this.Controls.Add(this.labRole);
@@ -571,5 +689,16 @@
         private TextBox textBResGest;
         private Button butInscription;
         private Button butDesincription;
+        private Label label2;
+        private Label labTarifMax;
+        private Label label3;
+        private TextBox textBTarifMax;
+        private Button butAugmenterTarifMax;
+        private Button butAugmentBudgetMax;
+        private TextBox textBAugmentBudgetMax;
+        private Label labAugmentBudgetMax;
+        private Label labBudgetMax;
+        private TextBox textBBudgetMax;
+        private Button butAfficherTousAdherent;
     }
 }
