@@ -9,7 +9,7 @@ namespace Adherent_tp4
     internal class Activite
     {
         private DateTime dateDebut;
-        private string nom;
+        private String nom;
         private float tarif;
         private String type;
         private static float tarifMax =50;
